@@ -3,28 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" href="assets/favicon.png" type="image/png">
-
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <title>Hayai Sewa</title>
   <style>
+    /* ===== Reset & Base Styles ===== */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', sans-serif;
     }
 
-    body {
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', Arial, sans-serif;
       background-color: #ffffff;
       color: #333;
       line-height: 1.6;
     }
 
- .container {
-  width: 100%;
-  padding: 20px 50px;
-  margin: 0;
-}
+    /* ===== Header Styles ===== */
+    header {
+      width: 100%;
+      padding: 12.5px 50px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+      gap: 12.5px;
+    }
+
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    .logo-text {
+      height: 50px;
+    }
+
+    /* Desktop nav */
+    #desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 37.5px;
+    }
+
+    #desktop-nav ul li a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    /* Mobile nav */
+    #hamburger-nav {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: darkred;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 75px;
+      right: 50px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 12.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 12.5px;
+      z-index: 99;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* ===== Main Content ===== */
+    main {
+      width: 100%;
+      height: auto;
+    }
+
+    .container {
+      width: 100%;
+      padding: 20px 50px;
+    }
 
     .header {
       text-align: left;
@@ -42,25 +129,28 @@
 
     .content {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
+      align-items: stretch;
+      width: 100%;
     }
 
-.text-content,
-.image-content {
-  width: 50%;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
+    .text-content,
+    .image-content {
+      width: 50%;
+      padding: 0 15px;
+    }
 
     .image-container {
+      display: flex;
       height: 100%;
     }
 
     .shop-image {
       width: 100%;
-      height: 100%;
+      height: auto;
       object-fit: cover;
+      flex: 1;
     }
 
     p {
@@ -69,284 +159,74 @@
       letter-spacing: 0.5px;
     }
 
+    .bold {
+      font-weight: bold;
+    }
+
     .small-screen-header {
       display: none;
       color: #3a9db0;
       margin-bottom: 15px;
+      text-align: center;
     }
 
-   @media (max-width: 768px) {
-  body, html {
-    width: 100%;
-    overflow-x: hidden;
-  }
+    /* ===== Responsive (Mobile) ===== */
+    @media (max-width: 768px) {
+      #desktop-nav {
+        display: none;
+      }
 
-  .container {
-    padding: 20px 15px;
-    width: 100%;
-  }
+      #hamburger-nav {
+        display: block;
+      }
 
-  .content {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+      .container {
+        padding: 20px 15px;
+      }
 
-  .text-content,
-  .image-content {
-    width: 100%;
-    padding: 0;
-  }
+      .content {
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .image-content {
-    order: 1;
-    margin-bottom: 20px;
-  }
+      .text-content,
+      .image-content {
+        width: 100%;
+        padding: 0;
+      }
 
-  .text-content {
-    order: 2;
-  }
+      .image-content {
+        order: 1;
+        margin-bottom: 20px;
+      }
 
-  h1 {
-    font-size: 28px;
-    text-align: center;
-  }
+      .text-content {
+        order: 2;
+        padding: 0 15px;
+      }
 
-  .header {
-    display: none;
-  }
+      h1 {
+        font-size: 28px;
+        text-align: center;
+      }
 
-  .small-screen-header {
-    display: block;
-    text-align: center;
-  }
+      .header {
+        display: none;
+      }
 
-  .shop-image {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-}
+      .small-screen-header {
+        display: block;
+      }
 
-    .bold{
-        font-weight: bold;
+      .bold p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .logo-text {
+        height: 37.5px;
+      }
     }
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body, html {
-  height: 100%;
-  width: 100%;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  width: 100%;
-  padding: 12.5px 50px; /* increased from 10px 40px */
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  z-index: 10;
-}
-
-.left-side {
-  display: flex;
-  align-items: center;
-  gap: 12.5px; /* was 10px */
-}
-
-.logo {
-  width: 50px; /* was 40px */
-  height: auto;
-}
-
-.logo-text {
-  height: 50px; /* was 40px */
-}
-
-/* Desktop nav */
-#desktop-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 37.5px; /* was 30px */
-}
-
-#desktop-nav ul li a {
-  text-decoration: none;
-  color: darkred;
-  font-weight: bold;
-  font-size: 17.5px; /* was 14px */
-}
-
-/* Mobile nav */
-#hamburger-nav {
-  display: none;
-}
-
-.hamburger {
-  font-size: 35px; /* was 28px */
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: darkred;
-}
-
-.mobile-menu {
-  position: absolute;
-  top: 75px; /* was 60px */
-  right: 50px; /* was 40px */
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 12.5px; /* was 10px */
-  display: flex;
-  flex-direction: column;
-  gap: 12.5px; /* was 10px */
-  z-index: 9;
-}
-
-.mobile-menu a {
-  text-decoration: none;
-  color: darkred;
-  font-weight: bold;
-  font-size: 17.5px; /* was 14px */
-}
-
-.hidden {
-  display: none;
-}
-
-.divider-line {
-  height: 1.25px; /* was 1px */
-  background-color: gray;
-  width: 100%;
-}
-
-main {
-  position: relative;
-  width: 100%;
-  /* Remove fixed height */
-  height: auto;
-  overflow: visible; /* or just remove overflow */
-}
-
-
-.background-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Blue blur overlay covering ~62.5% of left */
-.blur-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 45%;
-  height: 100%;
-  background: #0066cc4d;
-  backdrop-filter: blur(1px); /* reduced from 6.25px */
-  z-index: 1;
-  display: flex;
-  align-items: center;
-}
-
-
-/* Text inside the blur overlay */
-.overlay-text {
-  color: white;
-  padding-left: 62.5px; /* was 50px */
-}
-.text-box p {
-  font-size: 50px;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-
-.text-box h1 {
-  font-size: 50px; /* was 40px */
-}
-
-/* Responsive for mobile */
-@media (max-width: 768px) {
-  #desktop-nav {
-    display: none;
-  }
-
-  #hamburger-nav {
-    display: block;
-  }
-
-  .blur-overlay {
-    width: 45%; /* keep it on the left */
-    height: 100%; /* full height */
-    justify-content: flex-start;
-    padding: 10px;
-    align-items: center;
-  }
-
-  .overlay-text {
-    padding-left: 25px;
-    text-align: left;
-  }
-
-  .text-box h1 {
-    font-size: 35px;
-  }
-
-  .text-box p {
-    font-size: 26px;
-  }
-
-  .logo-text {
-    height: 37.5px;
-  }
-}
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100; /* ensure it stays above other content */
-  background-color: white; /* keep background so content behind doesn’t show */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* optional: subtle shadow for depth */
-}
-
-/* fpr the topic of contact */
-@media (max-width: 768px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-  }
-}
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch; /* Make children same height */
-}
-
-.text-content,
-.image-content {
-  width: 50%;
-  padding: 0 15px;
-  box-sizing: border-box;
-}
-
-.image-container {
-  height: 100%;
-  display: flex;
-}
-
-.shop-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  flex: 1; /* Stretch image to fill parent */
-}
-
-
   </style>
 </head>
 <body>
@@ -388,36 +268,40 @@ header {
   </header>
 
   <main>
-    <!-- Your main page content here -->
-
     <div class="container">
+      <!-- Desktop Header -->
       <div class="header">
         <h1>Hayai Halal and Recycle Shop <br> のご紹介</h1>
       </div>
-      
+
       <div class="content">
         <div class="text-content">
-            <div class="bold">
-         <p>外国人の増加に伴い、子どもたちのニーズや問題が同じ場所で
-          少しでも解決されることを願い、群馬県伊勢崎堀下町にある
-          Hayai SEWAの本社にて「Hayai Halal and Recycle」を設けました。
-          約40～45台分の駐車スペースを完備したこの施設では、
-          しい日常の中で買い物と遊びを同時に楽しむことができます。</p>
-          
-          <p>お買い物の間、子どもたちは遊びながら学び、
-          他の子どもたちと交流できるスペースが用意されています。
-          大きなスーパーマーケットのような環境の中に、
-          子ども用のスペースにはたくさんのおもちゃが揃っており、
-          完全に家族向けで子どもに優しい環境を提供しています。</p>
-          
-          <p>私たちは、皆様が安心して楽しめる場所を目指しています。
-          ぜひお越しください！</p>
+          <div class="bold">
+            <p>
+              外国人の増加に伴い、子どもたちのニーズや問題が同じ場所で
+              少しでも解決されることを願い、群馬県伊勢崎堀下町にある
+              Hayai SEWAの本社にて「Hayai Halal and Recycle」を設けました。
+              約40～45台分の駐車スペースを完備したこの施設では、
+              日常の中で買い物と遊びを同時に楽しむことができます。
+            </p>
+            <p>
+              お買い物の間、子どもたちは遊びながら学び、
+              他の子どもたちと交流できるスペースが用意されています。
+              大きなスーパーマーケットのような環境の中に、
+              子ども用のスペースにはたくさんのおもちゃが揃っており、
+              完全に家族向けで子どもに優しい環境を提供しています。
+            </p>
+            <p>
+              私たちは、皆様が安心して楽しめる場所を目指しています。
+              ぜひお越しください！
+            </p>
           </div>
         </div>
-        
+
         <div class="image-content">
+          <!-- Mobile Header -->
           <div class="small-screen-header">
-            <h1>Hayai Halal and Recycle Shop<br><p> のご紹介</p></h1>
+            <h1>Hayai Halal and Recycle Shop のご紹介</h1>
           </div>
           <div class="image-container">
             <img src="assets/mart.jpg" alt="Hayai Halal and Recycle Shop interior" class="shop-image">
@@ -437,7 +321,6 @@ header {
       hamburger.setAttribute("aria-expanded", String(!expanded));
       mobileMenu.classList.toggle("hidden");
     });
-    
   </script>
 </body>
 </html>
