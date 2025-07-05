@@ -6,7 +6,6 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <title>Hayai Sewa</title>
   <style>
-    /* ===== Reset & Base Styles ===== */
     * {
       margin: 0;
       padding: 0;
@@ -22,7 +21,6 @@
       line-height: 1.6;
     }
 
-    /* ===== Header Styles ===== */
     header {
       width: 100%;
       padding: 12.5px 50px;
@@ -51,7 +49,6 @@
       height: 50px;
     }
 
-    /* Desktop nav */
     #desktop-nav ul {
       display: flex;
       list-style: none;
@@ -65,7 +62,6 @@
       font-size: 17.5px;
     }
 
-    /* Mobile nav */
     #hamburger-nav {
       display: none;
     }
@@ -102,7 +98,64 @@
       display: none;
     }
 
-    /* ===== Main Content ===== */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: bold;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 20px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #0aa6c5;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(20px);
+    }
+
+    .nav-and-toggle {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
     main {
       width: 100%;
       height: auto;
@@ -170,8 +223,11 @@
       text-align: center;
     }
 
-    /* ===== Responsive (Mobile) ===== */
     @media (max-width: 768px) {
+      header {
+        padding: 12.5px 20px;
+      }
+
       #desktop-nav {
         display: none;
       }
@@ -226,6 +282,10 @@
       .logo-text {
         height: 37.5px;
       }
+
+      .lang-switch {
+        margin-left: auto;
+      }
     }
   </style>
 </head>
@@ -238,70 +298,57 @@
       </a>
     </div>
 
-    <!-- Desktop Navigation -->
-    <nav id="desktop-nav" role="navigation" aria-label="メインナビゲーション">
-      <ul>
-        <li><a href="overview.html">会社概要</a></li>
-        <li><a href="business_content.html">事業内容</a></li>
-        <li><a href="message_from_Ceo.html">代表挨拶</a></li>
-        <li><a href="contact_us.html">お問い合わせ</a></li>
-      </ul>
-    </nav>
-
-    <!-- Mobile Navigation -->
-    <div id="hamburger-nav">
-      <button 
-        class="hamburger" 
-        aria-label="メニューを開く" 
-        aria-expanded="false" 
-        aria-controls="mobile-menu"
-      >
-        &#9776;
-      </button>
-      <nav id="mobile-menu" class="mobile-menu hidden" role="navigation" aria-label="モバイルメニュー">
-        <a href="overview.html">会社概要</a>
-        <a href="business_content.html">事業内容</a>
-        <a href="message_from_Ceo.html">代表挨拶</a>
-        <a href="contact_us.html">お問い合わせ</a>
+    <div class="nav-and-toggle">
+      <nav id="desktop-nav" role="navigation" aria-label="メインナビゲーション">
+        <ul>
+          <li><a id="nav1" href="overview.html">会社概要</a></li>
+          <li><a id="nav2" href="business_content.html">事業内容</a></li>
+          <li><a id="nav3" href="message_from_Ceo.html">代表挨拶</a></li>
+          <li><a id="nav4" href="contact_us.html">お問い合わせ</a></li>
+        </ul>
       </nav>
+
+      <div class="lang-switch">
+        <span id="label-left">JA</span>
+        <label class="switch">
+          <input type="checkbox" id="languageToggle">
+          <span class="slider"></span>
+        </label>
+        <span id="label-right">EN</span>
+      </div>
+
+      <div id="hamburger-nav">
+        <button class="hamburger" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
+          &#9776;
+        </button>
+        <nav id="mobile-menu" class="mobile-menu hidden" role="navigation" aria-label="モバイルメニュー">
+          <a id="mnav1" href="overview.html">会社概要</a>
+          <a id="mnav2" href="business_content.html">事業内容</a>
+          <a id="mnav3" href="message_from_Ceo.html">代表挨拶</a>
+          <a id="mnav4" href="contact_us.html">お問い合わせ</a>
+        </nav>
+      </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <!-- Desktop Header -->
       <div class="header">
-        <h1>Hayai Halal and Recycle Shop <br> のご紹介</h1>
+        <h1 id="mainHeading">Hayai Halal and Recycle Shop <br> のご紹介</h1>
       </div>
 
       <div class="content">
         <div class="text-content">
           <div class="bold">
-            <p>
-              外国人の増加に伴い、子どもたちのニーズや問題が同じ場所で
-              少しでも解決されることを願い、群馬県伊勢崎堀下町にある
-              Hayai SEWAの本社にて「Hayai Halal and Recycle」を設けました。
-              約40～45台分の駐車スペースを完備したこの施設では、
-              日常の中で買い物と遊びを同時に楽しむことができます。
-            </p>
-            <p>
-              お買い物の間、子どもたちは遊びながら学び、
-              他の子どもたちと交流できるスペースが用意されています。
-              大きなスーパーマーケットのような環境の中に、
-              子ども用のスペースにはたくさんのおもちゃが揃っており、
-              完全に家族向けで子どもに優しい環境を提供しています。
-            </p>
-            <p>
-              私たちは、皆様が安心して楽しめる場所を目指しています。
-              ぜひお越しください！
-            </p>
+            <p id="p1">外国人の増加に伴い、子どもたちのニーズや問題が同じ場所で少しでも解決されることを願い、群馬県伊勢崎堀下町にあるHayai SEWAの本社にて「Hayai Halal and Recycle」を設けました。約40～45台分の駐車スペースを完備したこの施設では、日常の中で買い物と遊びを同時に楽しむことができます。</p>
+            <p id="p2">お買い物の間、子どもたちは遊びながら学び、他の子どもたちと交流できるスペースが用意されています。大きなスーパーマーケットのような環境の中に、子ども用のスペースにはたくさんのおもちゃが揃っており、完全に家族向けで子どもに優しい環境を提供しています。</p>
+            <p id="p3">私たちは、皆様が安心して楽しめる場所を目指しています。ぜひお越しください！</p>
           </div>
         </div>
 
         <div class="image-content">
-          <!-- Mobile Header -->
           <div class="small-screen-header">
-            <h1>Hayai Halal and Recycle Shop のご紹介</h1>
+            <h1 id="mobileHeading">Hayai Halal and Recycle Shop のご紹介</h1>
           </div>
           <div class="image-container">
             <img src="assets/mart.jpg" alt="Hayai Halal and Recycle Shop interior" class="shop-image">
@@ -312,7 +359,51 @@
   </main>
 
   <script>
-    // Mobile menu toggle script
+    const toggle = document.getElementById("languageToggle");
+    const labelLeft = document.getElementById("label-left");
+    const labelRight = document.getElementById("label-right");
+
+    toggle.addEventListener("change", () => {
+      const isEnglish = toggle.checked;
+      labelLeft.textContent = isEnglish ? "EN" : "JA";
+      labelRight.textContent = isEnglish ? "JA" : "EN";
+
+      document.getElementById("mainHeading").innerHTML = isEnglish
+        ? "Introducing Hayai Halal and Recycle Shop"
+        : "Hayai Halal and Recycle Shop <br> のご紹介";
+
+      document.getElementById("mobileHeading").textContent = isEnglish
+        ? "Introducing Hayai Halal and Recycle Shop"
+        : "Hayai Halal and Recycle Shop のご紹介";
+
+      document.getElementById("p1").textContent = isEnglish
+        ? "With the increase in foreign residents, we established 'Hayai Halal and Recycle' at the headquarters of Hayai SEWA in Horigeshita Town, Isesaki, Gunma Prefecture, hoping to help solve children's needs and issues in one place. This facility, equipped with 40–45 parking spaces, allows families to enjoy shopping and play at the same time."
+        : "外国人の増加に伴い、子どもたちのニーズや問題が同じ場所で少しでも解決されることを願い、群馬県伊勢崎堀下町にあるHayai SEWAの本社にて「Hayai Halal and Recycle」を設けました。約40～45台分の駐車スペースを完備したこの施設では、日常の中で買い物と遊びを同時に楽しむことができます。";
+
+      document.getElementById("p2").textContent = isEnglish
+        ? "While shopping, children can learn through play and interact with others. Inside the supermarket-like space, there’s a children’s area filled with toys, providing a completely family-friendly and child-welcoming environment."
+        : "お買い物の間、子どもたちは遊びながら学び、他の子どもたちと交流できるスペースが用意されています。大きなスーパーマーケットのような環境の中に、子ども用のスペースにはたくさんのおもちゃが揃っており、完全に家族向けで子どもに優しい環境を提供しています。";
+
+      document.getElementById("p3").textContent = isEnglish
+        ? "We aim to create a place where everyone can feel safe and enjoy. Please visit us!"
+        : "私たちは、皆様が安心して楽しめる場所を目指しています。ぜひお越しください！";
+
+      const navItems = [
+        ["nav1", "会社概要", "Company Overview"],
+        ["nav2", "事業内容", "Business Content"],
+        ["nav3", "代表挨拶", "Message from CEO"],
+        ["nav4", "お問い合わせ", "Contact Us"],
+        ["mnav1", "会社概要", "Company Overview"],
+        ["mnav2", "事業内容", "Business Content"],
+        ["mnav3", "代表挨拶", "Message from CEO"],
+        ["mnav4", "お問い合わせ", "Contact Us"],
+      ];
+
+      navItems.forEach(([id, ja, en]) => {
+        document.getElementById(id).textContent = isEnglish ? en : ja;
+      });
+    });
+
     const hamburger = document.querySelector(".hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
 
