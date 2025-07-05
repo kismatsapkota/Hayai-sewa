@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hayai Sewa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ⬇️ First block: HEADER + MOBILE MENU -->
+  <header>
+    <div class="left-side">
+      <a href="index.html" aria-label="ホームへ戻る">
+        <img src="assets/logo.jpg" alt="Logo" class="logo" />
+        <img src="assets/logo1.jpg" alt="Logo Text" class="logo-text" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-nav" role="navigation" aria-label="メインナビゲーション">
+      <ul>
+        <li><a href="overview.html">会社概要</a></li>
+        <li><a href="business_content.html">事業内容</a></li>
+        <li><a href="message_from_Ceo.html">代表挨拶</a></li>
+        <li><a href="contact_us.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div id="hamburger-nav">
+      <button 
+        class="hamburger" 
+        aria-label="メニューを開く" 
+        aria-expanded="false" 
+        aria-controls="mobile-menu"
+      >
+        &#9776;
+      </button>
+      <nav id="mobile-menu" class="mobile-menu hidden" role="navigation" aria-label="モバイルメニュー">
+        <a href="overview.html">会社概要</a>
+        <a href="business_content.html">事業内容</a>
+        <a href="message_from_Ceo.html">代表挨拶</a>
+        <a href="contact_us.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <script>
+    // Mobile menu toggle script
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburger.addEventListener("click", () => {
+      const expanded = hamburger.getAttribute("aria-expanded") === "true";
+      hamburger.setAttribute("aria-expanded", String(!expanded));
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+
+  <!-- ⬇️ Second block: COMPANY OVERVIEW PAGE -->
+  <div >
+    <iframe src="overview1.html" frameborder="0" style="width:100%; height:100vh;"></iframe>
+  </div>
+</body>
+</html>

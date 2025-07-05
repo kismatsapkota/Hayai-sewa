@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>代表挨拶 - Hayai Sewa</title>
+  <style>
+    /* Unfix the header for this page only */
+    header {
+      position: static !important;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: "Arial", sans-serif;
+      background-color: #33ccff;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      width: 100%; /* Fixed: removed max-width and margin */
+    }
+
+    .ceo-photo {
+      flex: 0 0 35%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .photo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ceo-photo img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 40px;
+    }
+
+    .ceo-name {
+      margin-top: 15px;
+      padding: 8px 30px;
+      border: 2px solid white;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 25px;
+      color: white;
+      text-align: center;
+    }
+
+    .ceo-message {
+      flex: 1;
+      padding-left: 40px;
+      color: white;
+    }
+
+    .ceo-message h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .ceo-message p {
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .ceo-message {
+        padding-left: 0;
+        padding-top: 20px;
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      width: 100%;
+      padding: 12.5px 50px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+      gap: 12.5px;
+    }
+
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    .logo-text {
+      height: 50px;
+    }
+
+    #desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 37.5px;
+    }
+
+    #desktop-nav ul li a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    #hamburger-nav {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: darkred;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 75px;
+      right: 50px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 12.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 12.5px;
+      z-index: 9;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .divider-line {
+      height: 1.25px;
+      background-color: gray;
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .blur-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: #0066cc4d;
+      backdrop-filter: blur(1px);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .overlay-text {
+      color: white;
+      padding-left: 62.5px;
+    }
+
+    .text-box p {
+      font-size: 50px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .text-box h1 {
+      font-size: 50px;
+    }
+
+    @media (max-width: 768px) {
+      #desktop-nav {
+        display: none;
+      }
+
+      #hamburger-nav {
+        display: block;
+      }
+
+      .blur-overlay {
+        width: 45%;
+        height: 100%;
+        justify-content: flex-start;
+        padding: 10px;
+        align-items: center;
+      }
+
+      .overlay-text {
+        padding-left: 25px;
+        text-align: left;
+      }
+
+      .text-box h1 {
+        font-size: 35px;
+      }
+
+      .text-box p {
+        font-size: 26px;
+      }
+
+      .logo-text {
+        height: 37.5px;
+      }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 768px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-side">
+      <a href="../index.html" aria-label="ホームへ戻る">
+        <img src="../assets/logo.jpg" alt="Logo" class="logo" />
+        <img src="../assets/logo1.jpg" alt="Logo Text" class="logo-text" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-nav">
+      <ul>
+        <li><a href="../overview.html">会社概要</a></li>
+        <li><a href="../business_content.html">事業内容</a></li>
+        <li><a href="message_from_ceo.html">代表挨拶</a></li>
+        <li><a href="../contact_us.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div id="hamburger-nav">
+      <button class="hamburger" aria-expanded="false">&#9776;</button>
+      <nav id="mobile-menu" class="mobile-menu hidden">
+        <a href="../overview.html">会社概要</a>
+        <a href="../business_content.html">事業内容</a>
+        <a href="message_from_ceo.html">代表挨拶</a>
+        <a href="../contact_us.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="divider-line"></div>
+
+  <main>
+    <div class="container">
+      <div class="ceo-photo">
+        <div class="photo-container">
+          <img src="../assets/ceo.jpg" alt="CEO" />
+          <div class="ceo-name">代表取締役<br>ネウパネ ビスヌ</div>
+        </div>
+      </div>
+      <div class="ceo-message">
+        <h1>代表挨拶</h1>
+        <p>
+          <h7>株式会社HAYAISWAは、ネパールに「HI HI CONSULTANT PVT.LTD」という日本語学校を運営しています。そこで、日本の文化、法律、生活、ルールに基づき、日本語を正しく教えています。私たちは、ネパールの学生を紹介するだけでなく、日本に来た後も実際に学校や会社のルールを守らせるため、学生の日常生活をサポートしています。アルバイトや就職相談、進学の相談にも対応できるのは、私、代表のビスヌが日本国内にいるからです。必要に応じて、会社説明会、面談会や学校の入学式、卒業式などの重要なイベント時には、その国の言語でサポートを行っています。</h7>
+        </p>
+        <br>
+        <p>
+          <h7>「HI HI」という世界共通の初めての挨拶から、ネパールでの学校HI HI CONSULTANT PVT.LTDスタートし、日本国内でも迅速に対応することを意識して、日本では株式会社HAYAISWA（早いせわ）に決めました。これまで留学の対応をメインに行ってきましたが、現地サポートだけでなく「日本国内でも説明の打ち合わせが増えているため、特定技能、技能実習、技術、人文知識、国際業務に力入れ日本−ネパール人材の架け橋として活動してまいります。是非外国人雇用のことならお任せください。</h7>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const desktopNav = document.getElementById('desktop-nav');
+    const hamburgerNav = document.getElementById('hamburger-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+
+      if (mobileNav) {
+        if (mobileNav.style.display === 'flex') {
+          mobileNav.style.display = 'none';
+        } else {
+          mobileNav.style.display = 'flex';
+        }
+      }
+
+      if (mobileMenu) {
+        mobileMenu.classList.toggle('hidden');
+      }
+    });
+
+    if (mobileNav) {
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.style.display = 'none';
+          hamburger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    function toggleNavOnZoom() {
+      const zoom = window.devicePixelRatio;
+
+      if (zoom >= 1.75) {
+        if (desktopNav) desktopNav.style.display = 'none';
+        if (hamburgerNav) hamburgerNav.style.display = 'block';
+      } else {
+        if (desktopNav) desktopNav.style.display = 'flex';
+        if (hamburgerNav) hamburgerNav.style.display = 'none';
+      }
+    }
+
+    window.addEventListener('resize', toggleNavOnZoom);
+    window.addEventListener('load', toggleNavOnZoom);
+  </script>
+</body>
+</html>

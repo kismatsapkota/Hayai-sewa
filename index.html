@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hayai Sewa</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: Arial, 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+      width: 100%;
+      color: #333;
+      background-color: #f8f9fa;
+    }
+
+    header {
+      width: 100%;
+      padding: 12.5px 50px;
+      background-color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+      gap: 12.5px;
+    }
+
+    .logo {
+      width: 50px;
+      height: auto;
+    }
+
+    .logo-text {
+      height: 50px;
+    }
+
+    #desktop-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 37.5px;
+    }
+
+    #desktop-nav ul li a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    #hamburger-nav {
+      display: none;
+    }
+
+    .hamburger {
+      font-size: 35px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: darkred;
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 75px;
+      right: 50px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 12.5px;
+      display: flex;
+      flex-direction: column;
+      gap: 12.5px;
+      z-index: 9;
+    }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: darkred;
+      font-weight: bold;
+      font-size: 17.5px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .divider-line {
+      height: 1.25px;
+      background-color: gray;
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+      width: 100%;
+    }
+
+    .background-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .blur-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45%;
+      height: 100%;
+      background: #0066cc4d;
+      backdrop-filter: blur(1px);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .overlay-text {
+      color: white;
+      padding-left: 62.5px;
+    }
+
+    .text-box p {
+      font-size: 50px;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .text-box h1 {
+      font-size: 50px;
+    }
+
+    .job-section {
+      background: linear-gradient(135deg, #4FC3F7 0%, #29B6F6 100%);
+      color: white;
+      padding: 40px 20px;
+    }
+
+    .job-section .container {
+      margin: 0 auto;
+    }
+
+    .job-section .header h1 {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .job-section .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .job-section .service-item, .job-section .service-single {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    .service-image {
+      width: 120px;
+      height: 90px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .service-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .service-letter {
+      background: rgba(255, 255, 255, 0.2);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .service-description {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .divider {
+      height: 2px;
+      background: rgba(255, 255, 255, 0.3);
+      margin: 25px 0;
+    }
+
+    .support-container {
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2c5aa0;
+    }
+
+    .main-title {
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+      color: #2c5aa0;
+      letter-spacing: 2px;
+    }
+
+    .description {
+      text-align: center;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .support-content {
+      margin-bottom: 40px;
+    }
+
+    .services-grid.support {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 25px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border: 2px solid #e6f3ff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-card .service-title {
+      background: white;
+      color: #2c5aa0;
+      border-radius: 20px;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      display: inline-block;
+      min-width: 200px;
+      border: 2px solid #2c5aa0;
+    }
+
+    @media (max-width: 768px) {
+      .services-grid.support {
+        grid-template-columns: 1fr;
+      }
+
+      .main-title {
+        font-size: 28px;
+      }
+
+      .service-card {
+        padding: 25px 15px;
+      }
+
+      .service-card .service-title {
+        font-size: 16px;
+        padding: 10px 15px;
+        min-width: 180px;
+      }
+
+      .job-section .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .logo-text {
+        height: 37.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-side">
+      <a href="index.html" aria-label="ホームへ戻る">
+        <img src="assets/logo.jpg" alt="Logo" class="logo" />
+        <img src="assets/logo1.jpg" alt="Logo Text" class="logo-text" />
+      </a>
+    </div>
+    <nav id="desktop-nav">
+      <ul>
+        <li><a href="overview.html">会社概要</a></li>
+        <li><a href="business_content.html">事業内容</a></li>
+        <li><a href="message_from_Ceo.html">代表挨拶</a></li>
+        <li><a href="contact_us.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <div id="hamburger-nav">
+      <button class="hamburger" aria-expanded="false">&#9776;</button>
+      <nav id="mobile-menu" class="mobile-menu hidden">
+        <a href="overview.html">会社概要</a>
+        <a href="business_content.html">事業内容</a>
+        <a href="message_from_Ceo.html">代表挨拶</a>
+        <a href="contact_us.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="divider-line"></div>
+
+  <main>
+    <img src="assets/building.jpg" alt="Building" class="background-image" />
+    <div class="blur-overlay">
+      <div class="overlay-text">
+        <div class="text-box">
+          <p>株式会社</p>
+          <h1>HAYAI SEWA</h1>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Job Section -->
+  <section class="job-section">
+    <div class="container">
+      <div class="header">
+        <h2>【事業内容】</h2>
+        <div style="display: flex; align-items: flex-start; gap: 25px;">
+          <div style="min-width: 135px; font-weight: bold;"><h1>職業紹介</h1></div>
+          <div style="font-size: 15px; line-height: 1.6;">
+            私たちの職業紹介サービスでは、さまざまな業界や職種におけるキャリアの機会を提供しています。<br />
+            求職者の皆様が自分に合った職業を見つけられるよう、以下のサポートを行っています。
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="services-grid">
+        <div class="service-item">
+          <img src="assets/download (2).jpg" alt="職業マッチング" class="service-image" />
+          <div class="service-content">
+            <div class="service-title"><span class="service-letter">A</span> 職業マッチング</div>
+            <p class="service-description">あなたのスキル、経験、興味に基づいて最適な職場を提案します。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <img src="assets/download (3).jpg" alt="求人情報の提供" class="service-image" />
+          <div class="service-content">
+            <div class="service-title"><span class="service-letter">B</span> 求人情報の提供</div>
+            <p class="service-description">最新の求人情報を掲載し、求職者が簡単に職種を検索できます。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <img src="assets/download (4).jpg" alt="履歴書支援" class="service-image" />
+          <div class="service-content">
+            <div class="service-title"><span class="service-letter">C</span> 履歴書・職務経歴書の作成支援</div>
+            <p class="service-description">アドバイスを提供し、あなたの強みをアピールする履歴書作成を支援します。</p>
+          </div>
+        </div>
+
+        <div class="service-item">
+          <img src="assets/download (5).jpg" alt="面接対策" class="service-image" />
+          <div class="service-content">
+            <div class="service-title"><span class="service-letter">D</span> 面接対策</div>
+            <p class="service-description">模擬面接とフィードバックにより、自信を持って本番に臨めるようサポートします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="service-single">
+        <img src="assets/images (2).jpg" alt="キャリア相談" class="service-image" />
+        <div class="service-content">
+          <div class="service-title"><span class="service-letter">E</span> キャリア相談</div>
+          <p class="service-description">長期的なキャリアプランについて、専門アドバイザーが相談に乗ります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 登録支援機関 Section -->
+  <div class="support-container">
+    <div class="business-content">
+      <h2 class="section-title">【事業内容】</h2>
+      <h1 class="main-title">登録支援機関</h1>
+      <p class="description">
+        私たちの登録支援機関は、外国人の方々が日本での生活や仕事を円滑に行えるよう、さまざまなサポートを提供しています。私たちの使命は、外国人の方々が日本社会にスムーズに適応し、充実した生活を送るための手助けをすることです。
+      </p>
+    </div>
+
+    <div class="support-content">
+      <h2 class="section-title">【サポート内容】</h2>
+      <div class="services-grid support">
+        <div class="service-card"><div class="service-title">A. ビザ取得支援</div><p class="service-description">外国人の方々が必要なビザを取得するための手続きや書類の準備をサポートします。</p></div>
+        <div class="service-card"><div class="service-title">B. 住居探しの支援</div><p class="service-description">安心して住める住居を見つけるための情報提供や仲介を行います。</p></div>
+        <div class="service-card"><div class="service-title">C. 日本語教育</div><p class="service-description">日本語の学習を希望する方に対して適切な教材やクラスの紹介を行います。</p></div>
+        <div class="service-card"><div class="service-title">D. 就職支援</div><p class="service-description">日本での就職を希望する方に対して、求人情報の提供や履歴書の作成支援を行います。</p></div>
+        <div class="service-card"><div class="service-title">E. 生活相談</div><p class="service-description">日常生活に関する悩みや困りごとについて、専門のスタッフが相談に乗ります。</p></div>
+        <div class="service-card"><div class="service-title">F. 文化交流イベント</div><p class="service-description">日本文化を学ぶ機会や、地域住民との交流イベントを定期的に開催し、異文化理解を深めます。</p></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const desktopNav = document.getElementById('desktop-nav');
+    const hamburgerNav = document.getElementById('hamburger-nav');
+
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isExpanded));
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.devicePixelRatio >= 1.75) {
+        desktopNav.style.display = 'none';
+        hamburgerNav.style.display = 'block';
+      } else {
+        desktopNav.style.display = 'flex';
+        hamburgerNav.style.display = 'none';
+      }
+    });
+
+    window.addEventListener('load', () => {
+      const zoom = window.devicePixelRatio;
+      if (zoom >= 1.75) {
+        desktopNav.style.display = 'none';
+        hamburgerNav.style.display = 'block';
+      } else {
+        desktopNav.style.display = 'flex';
+        hamburgerNav.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>代表挨拶 - Hayai Sewa</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Unfix the header for this page only */
+    header {
+      position: static !important;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      font-family: "Arial", sans-serif;
+    }
+
+    /* Related Companies styles - scoped inside .related-container */
+    .related-container {
+      background-color: #f9f9f9;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 40px auto 60px;
+      color: rgb(0, 217, 255);
+      font-family: "Meiryo", "Hiragino Kaku Gothic Pro", "MS Gothic", sans-serif;
+    }
+
+    .related-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .title-box {
+      background: linear-gradient(rgb(0, 217, 255));
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 60px;
+      font-weight: bold;
+      margin-right: 30px;
+      min-width: 2px;
+      text-align: center;
+      margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+
+    .intro-text {
+      color: rgb(0, 217, 255);
+      font-size: 14px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .company-section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .english {
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .related-container {
+        padding: 20px;
+      }
+
+      .title-box {
+        font-size: 28px;
+        padding: 15px 20px;
+        margin-right: 0;
+        width: 100%;
+      }
+
+      .intro-text {
+        font-size: 13px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="left-side">
+      <a href="../index.html" aria-label="ホームへ戻る">
+        <img src="../assets/logo.jpg" alt="Logo" class="logo" />
+        <img src="../assets/logo1.jpg" alt="Logo Text" class="logo-text" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav id="desktop-nav">
+      <ul>
+        <li><a href="../overview.html">会社概要</a></li>
+        <li><a href="../business_content.html">事業内容</a></li>
+        <li><a href="message_from_ceo.html">代表挨拶</a></li>
+        <li><a href="../contact_us.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div id="hamburger-nav">
+      <button class="hamburger" aria-expanded="false">&#9776;</button>
+      <nav id="mobile-menu" class="mobile-menu hidden">
+        <a href="../overview.html">会社概要</a>
+        <a href="../business_content.html">事業内容</a>
+        <a href="message_from_ceo.html">代表挨拶</a>
+        <a href="../contact_us.html">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Related Companies Section -->
+    <section class="related-container" aria-labelledby="related-companies-title">
+      <div class="related-header">
+        <div class="title-box">関連会社</div>
+        <div class="intro-text">
+          <h1>
+            株式会社HAYAISEWAはパートナーの皆様のご協力があるからこそこれからも大きな成長して行くことを存じます。
+            パートナーの皆様のご協力があったからこそ今の株式会社 HAYAI SEWA があります。
+            今まで協力してくださった組織や個人を紹介いたします。私たちはこれからも共に成長し続けます。
+            より明るい未来のために私たちの提携の力をご覧いただけますと幸いです。
+          </h1>
+        </div>
+      </div>
+
+      <div class="company-section">
+        <h2 id="related-companies-title">1.会社名 (Name)： <span class="english">HI HI CONSULTANT PVT. LTD.</span></h2>
+        <h2>(登録番号)Reg. No.：<span class="english">300207079080</span></h2>
+        <h2>住所 (Address)：<span class="english">SAMAKUSHI CHOWK, TOKHA -10, KATHMANDU, NEPAL</span></h2>
+        <h2>電話番号 (phone)：<span class="english">+977 1-5915549, +977 -9841187549</span></h2>
+        <h2>メール (Mail address)：<span class="english">hihiconsul@gmail.com</span></h2>
+        <h2>URL: <span class="english">https://hihiconsultant.com.np</span></h2>
+      </div>
+
+      <div class="company-section">
+        <h2><span class="english">2. Nyaupane Techno Suppliers Pvt. Ltd.</span></h2>
+        <h2 class="english">
+          Nepal's Wholesale Suppliers for CCTV Camera, Smart Board, PABX, Cat6 Cable, CCTV Cable, Power Supply, Projector,<br />
+          Attended Devices and many more IT Products
+        </h2>
+        <h2 class="english">ADDRESS：Narayan Gopal Chowk, Kathmandu, Nepal</h2>
+        <h2 class="english">Phone：+977 1-4720894</h2>
+      </div>
+
+      <div class="company-section">
+        <h2>3. 第一ハウス (株)</h2>
+        <h2>377-0005、群馬県渋川市有馬2547、TEL-0279-22-2300、FAX 0279-22-2800</h2>
+      </div>
+
+      <div class="company-section">
+        <h2>4. 出入国在留管理局専門 行政書士</h2>
+        <h2>おおしろ行政書士事務所</h2>
+        <h2>〒370-0069 群馬県高崎市飯塚町490番地 カツミマンション306号</h2>
+      </div>
+    </section>
+  </main>
+
+  <script src="../script.js"></script>
+</body>
+</html>

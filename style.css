@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  width: 100%;
+  padding: 12.5px 50px; /* increased from 10px 40px */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 12.5px; /* was 10px */
+}
+
+.logo {
+  width: 50px; /* was 40px */
+  height: auto;
+}
+
+.logo-text {
+  height: 50px; /* was 40px */
+}
+
+/* Desktop nav */
+#desktop-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 37.5px; /* was 30px */
+}
+
+#desktop-nav ul li a {
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold;
+  font-size: 17.5px; /* was 14px */
+}
+
+/* Mobile nav */
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger {
+  font-size: 35px; /* was 28px */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: darkred;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 75px; /* was 60px */
+  right: 50px; /* was 40px */
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 12.5px; /* was 10px */
+  display: flex;
+  flex-direction: column;
+  gap: 12.5px; /* was 10px */
+  z-index: 9;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold;
+  font-size: 17.5px; /* was 14px */
+}
+
+.hidden {
+  display: none;
+}
+
+.divider-line {
+  height: 1.25px; /* was 1px */
+  background-color: gray;
+  width: 100%;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  /* Remove fixed height */
+  height: auto;
+  overflow: visible; /* or just remove overflow */
+}
+
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Blue blur overlay covering ~62.5% of left */
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: #0066cc4d;
+  backdrop-filter: blur(1px); /* reduced from 6.25px */
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+
+/* Text inside the blur overlay */
+.overlay-text {
+  color: white;
+  padding-left: 62.5px; /* was 50px */
+}
+.text-box p {
+  font-size: 50px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+
+.text-box h1 {
+  font-size: 50px; /* was 40px */
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  #desktop-nav {
+    display: none;
+  }
+
+  #hamburger-nav {
+    display: block;
+  }
+
+  .blur-overlay {
+    width: 45%; /* keep it on the left */
+    height: 100%; /* full height */
+    justify-content: flex-start;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .overlay-text {
+    padding-left: 25px;
+    text-align: left;
+  }
+
+  .text-box h1 {
+    font-size: 35px;
+  }
+
+  .text-box p {
+    font-size: 26px;
+  }
+
+  .logo-text {
+    height: 37.5px;
+  }
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100; /* ensure it stays above other content */
+  background-color: white; /* keep background so content behind doesn’t show */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* optional: subtle shadow for depth */
+}
+
+/* fpr the topic of contact */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
