@@ -75,40 +75,59 @@
       margin-bottom: 15px;
     }
 
-    @media (max-width: 768px) {
-      .content {
-        flex-direction: column;
-      }
+   @media (max-width: 768px) {
+  body, html {
+    width: 100%;
+    overflow-x: hidden;
+  }
 
-      h1 {
-        font-size: 28px;
-      }
+  .container {
+    padding: 20px 15px;
+    width: 100%;
+  }
 
-      .text-content,
-      .image-content {
-        width: 100%;
-        padding-right: 0;
-        padding-left: 0;
-      }
+  .content {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
-      .text-content {
-        order: 2;
-      }
+  .text-content,
+  .image-content {
+    width: 100%;
+    padding: 0;
+  }
 
-      .image-content {
-        order: 1;
-        margin-bottom: 20px;
-      }
+  .image-content {
+    order: 1;
+    margin-bottom: 20px;
+  }
 
-      .header {
-        display: none;
-      }
+  .text-content {
+    order: 2;
+  }
 
-      .small-screen-header {
-        display: block;
-        text-align: center;
-      }
-    }
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .header {
+    display: none;
+  }
+
+  .small-screen-header {
+    display: block;
+    text-align: center;
+  }
+
+  .shop-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
     .bold{
         font-weight: bold;
     }
